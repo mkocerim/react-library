@@ -1,0 +1,56 @@
+{
+"books":[
+    {
+        "id":1,
+        "name":"Yaban",
+        "author": "Yakup Kadri Karaosmanoğlu",
+        "isbn":"1111111111111",
+        "categoryId":1
+
+    },
+    {
+        "id":2,
+        "name":"Çalıkuşu",
+        "author": "Reşat Nuri Güntekin",
+        "isbn":"1111111111112",
+        "categoryId":2
+
+    },
+    {
+        "id":3,
+        "name":"Sefiller",
+        "author": "Victor Hugo",
+        "isbn":"1111111111113",
+        "categoryId":1
+
+    },
+    {
+        "id":4,
+        "name":"Denemeler",
+        "author": "Montaigne",
+        "isbn":"1111111111114",
+        "categoryId":3
+
+    }
+
+],
+"categories":[
+    {
+        "id":1,
+        "name":"Roman"
+    },
+    {
+        "id":2,
+        "name":"Hikaye"
+    },
+    {
+        "id":3,
+        "name":"Deneme"
+    }
+]
+
+
+
+
+
+}
