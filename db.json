@@ -1,56 +1,74 @@
 {
-"books":[
+  "books": [
     {
-        "id":1,
-        "name":"Yaban",
-        "author": "Yakup Kadri Karaosmanoğlu",
-        "isbn":"1111111111111",
-        "categoryId":1
-
+      "id": 1,
+      "name": "Yaban",
+      "author": "Yakup Kadri Karaosmanoğlu",
+      "isbn": "1111111111111",
+      "categoryId": "1"
     },
     {
-        "id":2,
-        "name":"Çalıkuşu",
-        "author": "Reşat Nuri Güntekin",
-        "isbn":"1111111111112",
-        "categoryId":2
-
+      "id": 2,
+      "name": "Çalıkuşu",
+      "author": "Reşat Nuri Güntekin",
+      "isbn": "1111111111112",
+      "categoryId": "2"
     },
     {
-        "id":3,
-        "name":"Sefiller",
-        "author": "Victor Hugo",
-        "isbn":"1111111111113",
-        "categoryId":1
-
+      "id": 3,
+      "name": "Sefiller",
+      "author": "Victor Hugo",
+      "isbn": "1111111111113",
+      "categoryId": "1"
     },
     {
-        "id":4,
-        "name":"Denemeler",
-        "author": "Montaigne",
-        "isbn":"1111111111114",
-        "categoryId":3
-
+      "id": 4,
+      "name": "Denemeler",
+      "author": "Montaigne",
+      "isbn": "1111111111114",
+      "categoryId": "3"
+    },
+    {
+      "id": 1664050353335,
+      "name": "Suç ve Ceza",
+      "author": "Dostoyevski",
+      "isbn": "111111116",
+      "categoryId": "1"
+    },
+    {
+      "id": 1664050411818,
+      "name": "Kara Murat",
+      "author": "Tolstoy",
+      "isbn": "111111111117",
+      "categoryId": "2"
+    },
+    {
+      "id": 1664051187424,
+      "name": "Fareler ve Insanlar",
+      "author": "Dovstoyevski",
+      "isbn": "1111111119",
+      "categoryId": "2"
+    },
+    {
+      "id": 1664051224466,
+      "name": "Vadideki Zambak",
+      "author": "Balzac",
+      "isbn": "1111111119",
+      "categoryId": "1"
     }
-
-],
-"categories":[
+  ],
+  "categories": [
     {
-        "id":1,
-        "name":"Roman"
+      "id": "1",
+      "name": "Roman"
     },
     {
-        "id":2,
-        "name":"Hikaye"
+      "id": "2",
+      "name": "Hikaye"
     },
     {
-        "id":3,
-        "name":"Deneme"
+      "id": "3",
+      "name": "Deneme"
     }
-]
-
-
-
-
-
+  ]
 }
