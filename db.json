@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "name": "Çalıkuşu",
+      "name": "Çalıkuşu ",
       "author": "Reşat Nuri Güntekin",
-      "isbn": "1111111111112",
-      "categoryId": "2"
+      "categoryId": "1",
+      "isbn": "1111111111112"
     },
     {
       "id": 3,
@@ -22,32 +22,18 @@
       "categoryId": "1"
     },
     {
-      "id": 4,
-      "name": "Denemeler",
-      "author": "Montaigne",
-      "isbn": "1111111111114",
-      "categoryId": "3"
-    },
-    {
-      "id": 1664050353335,
-      "name": "Suç ve Ceza",
-      "author": "Dostoyevski",
-      "isbn": "111111116",
+      "id": 1664222302032,
+      "name": "En Uzun Gece",
+      "author": "Ahmet Altan",
+      "isbn": "111111222211",
       "categoryId": "1"
     },
     {
-      "id": 1664051187424,
-      "name": "Fareler ve Insanlar",
-      "author": "Dovstoyevski",
-      "isbn": "1111111119",
+      "id": 1664222325690,
+      "name": "Insan Ne Ile Yaşar",
+      "author": "Tolstoy",
+      "isbn": "1122245566612",
       "categoryId": "2"
-    },
-    {
-      "id": 1664176720787,
-      "name": "Nutuk",
-      "author": "Mustafa Kemal Atatürk",
-      "isbn": "",
-      "categoryId": "3"
     }
   ],
   "categories": [

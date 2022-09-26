@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const AddBookForm = (props)=>{
 const navigate = useNavigate()
 const [categories,setCategories]=useState(null);
-const [bookname,setBookName] = useState("");
+const [bookname,setBookname] = useState("");
 const [author,setAuthor]= useState("");
 const [isbn,setIsbn] = useState("");
 const [category,setCategory]=useState("");
@@ -43,7 +43,7 @@ const [category,setCategory]=useState("");
     axios.post("http://localhost:3004/books",newBook)
     .then(res=>{
         console.log(res);
-        setBookName("");
+        setBookname("");
         setAuthor("");
         setIsbn("");
         setCategory("");        
@@ -67,7 +67,7 @@ const [category,setCategory]=useState("");
             className="form-control" 
             placeholder="Kitap Adı" 
             value={bookname}
-            onChange={(event)=>setBookName(event.target.value)}
+            onChange={(event)=>setBookname(event.target.value)}
          />
         </div>
         <div className="col">
@@ -104,7 +104,7 @@ const [category,setCategory]=useState("");
         </option>
     {categories.map(cat=>{
         return(
-        <option value={cat.id}>{cat.name}</option>             
+        <option key={cat.id} value={cat.id}>{cat.name}</option>             
     )
     })
          }

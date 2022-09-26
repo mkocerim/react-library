@@ -2,12 +2,16 @@ import React, {useEffect,useState} from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
+import Modal from "./Modal";
+
 
 const ListBooks=(props)=>{
     
     const [books, setBooks] = useState(null);
     const [categories, setCategories] = useState(null);
-    const [didUpdate,setDidUpdate] = useState(false)
+    const [didUpdate,setDidUpdate] = useState(false);
+    const [showModal, setShowModal]=useState(false);
+    const [willDeleteBook, setWillDeleteBook]=useState(null);
     useEffect( ()=>{
         axios
         .get("http://localhost:3004/books")
@@ -35,6 +39,7 @@ const ListBooks=(props)=>{
       .then(res=>{
         console.log("delete res", res)
         setDidUpdate(!didUpdate);
+        setShowModal(false);
       })
       .catch(err=>console.log(err));
     }
@@ -65,20 +70,33 @@ const ListBooks=(props)=>{
           );
           
             return(
-                <tr>
+                <tr key={book.id}>
                 <td>{book.name}</td>
                 <td>{book.author}</td>
                 <td> {category.name} </td>
-                <td className="text-center">{book.isbn===""? "-" :book.isbn}</td>
+                <td className="text-center">
+                  {book.isbn===""? "-" :book.isbn}</td>
                 <td>
-                <div class="btn-group" role="group" aria-label="Basic example">
+                <div className="btn-group" role="group" aria-label="Basic example">
                  <button 
                  type="button" 
-                 class="btn btn-sm btn-outline-danger"
-                 onClick={()=>deleteBook(book.id)}
+                 className="btn btn-sm btn-outline-danger"
+                 onClick={()=>
+                  {
+                    setShowModal(true)
+                    // deleteBook(book.id)
+                    setWillDeleteBook(book.id)
+                  
+                  }}
                  >
                   Delete
                   </button>
+                  <Link 
+                    to={`edit-book/${book.id}`}
+                    className="btn btn-sm btn-outline-secondary"
+                 >
+                  Edit
+                  </Link>
                 </div>
                 </td>
               </tr>
@@ -90,6 +108,16 @@ const ListBooks=(props)=>{
    
   </tbody>
   </table>
+  {
+    showModal=== true &&(
+      <Modal
+      aciklama={"Silmek istediğinizden eminimisiniz ?"}
+      title={"Silme İşlemi"} 
+      setShowModal={setShowModal}
+              mussDoDuty={()=>deleteBook(willDeleteBook)}
+      />
+    )
+  }
 </div>
     )
 }
