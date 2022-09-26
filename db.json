@@ -36,13 +36,6 @@
       "categoryId": "1"
     },
     {
-      "id": 1664050411818,
-      "name": "Kara Murat",
-      "author": "Tolstoy",
-      "isbn": "111111111117",
-      "categoryId": "2"
-    },
-    {
       "id": 1664051187424,
       "name": "Fareler ve Insanlar",
       "author": "Dovstoyevski",
@@ -50,11 +43,11 @@
       "categoryId": "2"
     },
     {
-      "id": 1664051224466,
-      "name": "Vadideki Zambak",
-      "author": "Balzac",
-      "isbn": "1111111119",
-      "categoryId": "1"
+      "id": 1664176720787,
+      "name": "Nutuk",
+      "author": "Mustafa Kemal Atatürk",
+      "isbn": "",
+      "categoryId": "3"
     }
   ],
   "categories": [

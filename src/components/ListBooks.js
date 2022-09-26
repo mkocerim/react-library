@@ -7,7 +7,7 @@ const ListBooks=(props)=>{
     
     const [books, setBooks] = useState(null);
     const [categories, setCategories] = useState(null);
-    
+    const [didUpdate,setDidUpdate] = useState(false)
     useEffect( ()=>{
         axios
         .get("http://localhost:3004/books")
@@ -27,7 +27,17 @@ const ListBooks=(props)=>{
           .catch((err) => console.log("categories err",err))
         })
         .catch((err)=> console.log("books err",err));
-    } ,[]);
+    } ,[didUpdate]);
+
+    const deleteBook=(id)=>{
+      console.log(`http://localhost:3004/books/${id}`);
+      axios.delete(`http://localhost:3004/books/${id}`)
+      .then(res=>{
+        console.log("delete res", res)
+        setDidUpdate(!didUpdate);
+      })
+      .catch(err=>console.log(err));
+    }
     if(books === null || categories===null){
         return <Loading/> ;
     }
@@ -42,7 +52,8 @@ const ListBooks=(props)=>{
       <th scope="col">Kitap Adı</th>
       <th scope="col">Yazar</th>
       <th scope="col">Kategori</th>
-      <th scope="col">ISBN</th>
+      <th scope="col" className="text-center">ISBN</th>
+      <th scope="col">İşlem</th>
 
     </tr>
   </thead>
@@ -58,7 +69,18 @@ const ListBooks=(props)=>{
                 <td>{book.name}</td>
                 <td>{book.author}</td>
                 <td> {category.name} </td>
-                <td>{book.isbn}</td>
+                <td className="text-center">{book.isbn===""? "-" :book.isbn}</td>
+                <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                 <button 
+                 type="button" 
+                 class="btn btn-sm btn-outline-danger"
+                 onClick={()=>deleteBook(book.id)}
+                 >
+                  Delete
+                  </button>
+                </div>
+                </td>
               </tr>
             )
         })
