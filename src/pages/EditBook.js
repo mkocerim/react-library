@@ -7,6 +7,8 @@ import Header from "../components/Header";
 import axios from "axios";
 import Loading from "../components/Loading";
 
+import Modal from "../components/Modal";
+
 const EditBook=(props)=>{
     const params= useParams();
     const navigate= useNavigate();
@@ -16,6 +18,7 @@ const EditBook=(props)=>{
     const [isbn, setIsbn] = useState("");
     const [category, setCategory] = useState("");
     const [categories, setCategories] = useState(null);
+    const [showModal,setShowModal]=useState(false);
     
     console.log("params", params);
     
@@ -44,26 +47,34 @@ const EditBook=(props)=>{
     const handleSubmit=(event)=>{
 
         event.preventDefault();
-    if(bookname === "" || author === "" || category === ""){
-       alert("Kitap adı, Kitap Yazarı ve Kategory boş bırakılamaz");
-    return;
-        }
-    const updatedBook={
-        id:params.bookId,
-        name:bookname,
-        author:author,
-        categoryId: category,
-        isbn:isbn,
-    };
-      console.log("updatedBook",updatedBook);  
-      axios.put(`http://localhost:3004/books/${params.bookId}`,updatedBook)
-      .then(res=>{
-        console.log(res);
-        navigate("/");
-      })
-      .catch((err)=>console.log("edit error", err));
+        setShowModal(true);
+    
 
     };
+    
+    const editBook=()=>{
+        if(bookname === "" || author === "" || category === ""){
+            alert("Kitap adı, Kitap Yazarı ve Kategory boş bırakılamaz");
+         return;
+             }
+         const updatedBook={
+             id:params.bookId,
+             name:bookname,
+             author:author,
+             categoryId: category,
+             isbn:isbn,
+         };
+           console.log("updatedBook",updatedBook);  
+           axios.put(`http://localhost:3004/books/${params.bookId}`,updatedBook)
+           .then(res=>{
+             console.log(res);
+             setShowModal(false);
+             navigate("/");
+           })
+           .catch((err)=>console.log("edit error", err));
+
+    }
+    
 
 
     if(categories===null){
@@ -75,9 +86,9 @@ const EditBook=(props)=>{
             <Header/>
     <div className="container my-5" >
         <form onSubmit={handleSubmit}>
-        <div className="row">
-        <div className="col">
-                  <input 
+         <div className="row">
+          <div className="col">
+            <input 
             type="text" 
             className="form-control" 
             placeholder="Kitap Adı" 
@@ -132,6 +143,14 @@ const EditBook=(props)=>{
                 </div>
              </form>
         </div>
+    {showModal === true && (
+            <Modal 
+            title={bookname}
+            aciklama="isimli kitabı güncellemek için onaylayınız"
+            onCancel={()=>setShowModal(false)} 
+            onConfirm={()=>editBook()}/>
+        )
+    }
     </div>
 
     );

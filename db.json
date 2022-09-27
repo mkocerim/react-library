@@ -4,36 +4,22 @@
       "id": 1,
       "name": "Yaban",
       "author": "Yakup Kadri Karaosmanoğlu",
-      "isbn": "1111111111111",
-      "categoryId": "1"
-    },
-    {
-      "id": 2,
-      "name": "Çalıkuşu ",
-      "author": "Reşat Nuri Güntekin",
       "categoryId": "1",
-      "isbn": "1111111111112"
+      "isbn": "1111111111111"
     },
     {
-      "id": 3,
+      "id": 1664264395940,
       "name": "Sefiller",
       "author": "Victor Hugo",
-      "isbn": "1111111111113",
-      "categoryId": "1"
+      "categoryId": "1",
+      "isbn": "111112223344-12"
     },
     {
-      "id": 1664222302032,
-      "name": "En Uzun Gece",
-      "author": "Ahmet Altan",
-      "isbn": "111111222211",
-      "categoryId": "1"
-    },
-    {
-      "id": 1664222325690,
-      "name": "Insan Ne Ile Yaşar",
-      "author": "Tolstoy",
-      "isbn": "1122245566612",
-      "categoryId": "2"
+      "id": 1664264418452,
+      "name": "Ateş Gecesi",
+      "author": "Reşat Nuri Güntekin",
+      "categoryId": "1",
+      "isbn": "11112355666641"
     }
   ],
   "categories": [

@@ -2,9 +2,9 @@ import React from "react";
 
 
 const Modal=(props)=>{
-    const{setShowModal,mussDoDuty,title,aciklama} = props
+    const{onCancel,onConfirm,title,aciklama} = props
     return(
-        <div 
+        <button onClick={onCancel}
         style={{
             position: "absolute",
             top: 0,
@@ -14,7 +14,8 @@ const Modal=(props)=>{
             backgroundColor:"rgba(0,0,0,0.3",
             display:"flex",
             justifyContent:"center",
-            alignItems:"center"
+            alignItems:"center",
+            cursor:"default"
             }}>
             <div
                 style={{
@@ -26,18 +27,18 @@ const Modal=(props)=>{
             >
 
             <h1 className="text-center">{title}</h1>
-            <p>{aciklama}</p>
+            <p className="text-center">{aciklama}</p>
             <div className="d-flex justify-content-center">
                 <button 
-                onClick={()=>setShowModal(false)} 
-                className="btn btn-outline-danger btn-sm mx-3">Kapat</button>
+                onClick={onCancel} 
+                className="btn btn-outline-danger btn-sm mx-2">Kapat</button>
                 <button 
-                onClick={mussDoDuty}
-                className="btn btn-outline-primary btn-sm mx-3">Onayla</button>
+                onClick={onConfirm}
+                className="btn btn-outline-primary btn-sm mx-2">Onayla</button>
 
             </div>
             </div>
-        </div>
+        </button>
     )
 
 }

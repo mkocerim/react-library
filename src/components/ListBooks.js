@@ -12,6 +12,7 @@ const ListBooks=(props)=>{
     const [didUpdate,setDidUpdate] = useState(false);
     const [showModal, setShowModal]=useState(false);
     const [willDeleteBook, setWillDeleteBook]=useState(null);
+    const [willDeletedBookName,setWillDeletedBookName]=useState("")
     useEffect( ()=>{
         axios
         .get("http://localhost:3004/books")
@@ -80,12 +81,13 @@ const ListBooks=(props)=>{
                 <div className="btn-group" role="group" aria-label="Basic example">
                  <button 
                  type="button" 
-                 className="btn btn-sm btn-outline-danger"
+                 className="btn btn-sm btn-outline-danger mx-2"
                  onClick={()=>
                   {
                     setShowModal(true)
                     // deleteBook(book.id)
-                    setWillDeleteBook(book.id)
+                    setWillDeleteBook(book.id);
+                    setWillDeletedBookName(book.name);
                   
                   }}
                  >
@@ -111,10 +113,11 @@ const ListBooks=(props)=>{
   {
     showModal=== true &&(
       <Modal
-      aciklama={"Silmek istediğinizden eminimisiniz ?"}
-      title={"Silme İşlemi"} 
+      aciklama={`isimli kitabı silmek istediğinizden eminimisiniz ?`}
+      title={willDeletedBookName} 
       setShowModal={setShowModal}
-              mussDoDuty={()=>deleteBook(willDeleteBook)}
+              onConfirm={()=>deleteBook(willDeleteBook)}
+              onCancel={()=>setShowModal(false)}
       />
     )
   }
